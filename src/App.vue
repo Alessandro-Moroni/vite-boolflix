@@ -15,31 +15,45 @@ export default {
    },
 
    methods:{
-    getApi(){
-      axios.get(store.apiUrlMovie, {
-        params:{
-          api_key: '3f94080f310f95df3a4a3635805ca441',
-          original_title: '',
-          original_language: '',
-          vote_average: '',
-          title: '',
+    // funzione per i film
 
-        }
+    getApiMovie(){
+      axios.get(this.store.apiUrlMovie, {
+        params: this.store.queryParams
       })
       .then(res => {
         this.store.cardListMovie = res.data.results
         console.log(this.store.cardListMovie);
       })
+      .catch(error => {
+        console.log(error);
+      })
+    },
+
+    // funzione per le serie tv
+    
+    getApiTv(){
+      axios.get(this.store.apiUrlTv, {
+        params: this.store.queryParams
+      })
+      .then(res => {
+        this.store.cardListTv = res.data.results
+        console.log(this.store.cardListTv);
+      })
+      .catch(error => {
+        console.log(error);
+      })
     }
    },
    mounted(){
-    this.getApi()
+    this.getApiMovie()
+    this.getApiTv()
    }
   }
 </script>
 
 <template>
-  <Header />
+  <Header @searchTitle="getApiMovie(), getApiTv()" />
 
   <Main />
 </template>

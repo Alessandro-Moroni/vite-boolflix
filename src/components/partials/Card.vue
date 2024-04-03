@@ -1,8 +1,15 @@
 <script>
+
   export default {
     props:{
-      
-    }
+      original_title: String,
+      original_language: String,
+      vote_average: String,
+      title: String,
+      poster_path: String,
+    },
+   
+   
   }
 </script>
 
@@ -10,11 +17,13 @@
   <div class="col mb-5 ">
 
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img :src="poster_path" class="card-img-top" :alt="poster_path">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{ original_title }}</h5>
+        <p class="card-text">{{ original_language }}</p>
+        <p class="card-text">{{ title }}</p>
+        <p class="card-text">{{ vote_average }}</p>
+        
       </div>
     </div>
 

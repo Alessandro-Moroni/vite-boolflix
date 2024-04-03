@@ -4,9 +4,21 @@ import { store } from '../data/store';
     data(){
       return{
         store,
+        searchMovie: '',
+        searchTv: '',
       }
+    },
+    methods:{
+      searchTitle(){
+        this.store.queryParams.query = this.searchMovie;
+       
+        this.$emit('searchTitle')
+      },
+      // resetSearch(){
+      //   this.searchMovie = '';
+      //   this.searchTv = '';
+      // },
     }
-    
   }
 </script>
 
@@ -15,8 +27,13 @@ import { store } from '../data/store';
     <h1>BOOLFLIX</h1>
 
     <div class=" search-bar d-flex ">
-      <input type="text">
-      <button type="button" class="btn btn-danger ms-2">Search</button>
+      <input
+        type="text"
+        placeholder="Search a title..."
+        v-model.trim="searchMovie"
+        @change="searchTitle">
+
+      <button @click="searchTitle" type="button" class="btn btn-danger ms-2">Search</button>
     </div>
   </div>
 </template>
@@ -27,6 +44,7 @@ import { store } from '../data/store';
   height: 80px;
   background-color: black;
   position: fixed;
+  z-index: 1;
   h1{
     color: red;
   }
