@@ -16,7 +16,7 @@ import { store } from '../data/store';
 
     <div class=" search-bar d-flex ">
       <input type="text">
-      <button type="button" class="btn btn-danger mx-2">Search</button>
+      <button type="button" class="btn btn-danger ms-2">Search</button>
     </div>
   </div>
 </template>
