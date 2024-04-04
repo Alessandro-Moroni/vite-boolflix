@@ -5,17 +5,21 @@ import { store } from '../data/store';
     components:{
       Card,
     },
+    props:{
+      type: String
+    },
     data(){
       return{
         store,
       }
-    }
+    },
+    
   }
 </script>
 
 <template>
   <div class="main-bc">
-    <div class="container">
+    <div class="container" v-if="store.cardListMovie.length > 0">
       <h2>Movie</h2>
       <div class="row  row-cols-4 ">
         
@@ -25,14 +29,15 @@ import { store } from '../data/store';
         :original_title="card.original_title"
         :original_language="card.original_language"
         :title="card.title"
-        :vote_average="card.vote_average" />
+        :vote_average="card.vote_average"
+        :poster_path="card.poster_path" />
         
         
       </div>
     </div>
     
-    <div class="container">
-      <h2>Tv</h2>
+    <div class="container" v-if="store.cardListTv.length > 0">
+      <h2>Tv series</h2>
       <div class="row  row-cols-4 ">
 
         <Card
@@ -41,7 +46,8 @@ import { store } from '../data/store';
           :original_title="tv.original_name"
           :original_language="tv.original_language"
           :title="tv.name"
-          :vote_average="tv.vote_average" />
+          :vote_average="tv.vote_average" 
+          :poster_path="tv.poster_path"/>
         
 
       </div>
@@ -55,6 +61,7 @@ import { store } from '../data/store';
   background-color: rgb(67, 67, 67);
   height: 100vh;
   padding-top: 80px;
+  overflow-y: scroll;
   .container{
     margin-top: 20px;
   }

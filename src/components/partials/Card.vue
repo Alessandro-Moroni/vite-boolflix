@@ -1,5 +1,5 @@
 <script>
-
+import { store } from '../../data/store';
   export default {
     props:{
       original_title: String,
@@ -9,6 +9,7 @@
       poster_path: String,
     },
    
+
    
   }
 </script>
@@ -17,7 +18,7 @@
   <div class="col mb-5 ">
 
     <div class="card" style="width: 18rem;">
-      <img :src="poster_path" class="card-img-top" :alt="poster_path">
+      <img :src="`https://image.tmdb.org/t/p/w342${poster_path} `" class="card-img-top" :alt="poster_path">
       <div class="card-body">
         <h5 class="card-title">{{ original_title }}</h5>
         <p class="card-text">{{ original_language }}</p>

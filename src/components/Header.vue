@@ -5,7 +5,7 @@ import { store } from '../data/store';
       return{
         store,
         searchMovie: '',
-        searchTv: '',
+       
       }
     },
     methods:{
@@ -14,10 +14,10 @@ import { store } from '../data/store';
        
         this.$emit('searchTitle')
       },
-      // resetSearch(){
-      //   this.searchMovie = '';
-      //   this.searchTv = '';
-      // },
+      resetSearch(){
+        this.searchMovie = '';
+      
+      },
     }
   }
 </script>
