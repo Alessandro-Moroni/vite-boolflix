@@ -54,6 +54,24 @@ import { store } from '../data/store';
 
       </div>
     </div>
+
+    <!-- <div class="container" v-if="store.cardListMovie.length > 0">
+      <h2>Movie</h2>
+      <div class="row  row-cols-4 ">
+        
+        <Card
+        v-for="card in this.store.cardListMovie"
+        :key="card.id"
+        :original_title="card.original_title"
+        :original_language="card.original_language"
+        :title="card.title"
+        :vote_average="card.vote_average"
+        :poster_path="card.poster_path"
+        :overview="card.overview" />
+        
+        
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -69,6 +87,7 @@ import { store } from '../data/store';
     h2{
       color: black;
       text-shadow: 0 0 5px red;
+      margin-bottom: 20px;
     }
   }
 }

@@ -6,6 +6,8 @@ export const store = reactive({
  cardListMovie: [],
  apiUrlTv: 'https://api.themoviedb.org/3/search/tv',
  cardListTv: [],
+ populatApi: 'https://api.themoviedb.org/3/search/tv',
+ popularList: [],
  queryParams:{
   api_key: '3f94080f310f95df3a4a3635805ca441',
   query: '',

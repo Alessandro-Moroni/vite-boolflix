@@ -77,6 +77,7 @@ import { store } from '../../data/store';
 }
 .not-found{
   height: 430px;
+  width: 290px;
   object-fit: contain;
 }
 .card-movie{
@@ -100,7 +101,7 @@ import { store } from '../../data/store';
     }
     .text-description{
       overflow: auto;
-      height: 250px;
+      height: 200px;
 
     }
   }
