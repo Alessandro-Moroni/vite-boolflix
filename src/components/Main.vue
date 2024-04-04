@@ -30,7 +30,8 @@ import { store } from '../data/store';
         :original_language="card.original_language"
         :title="card.title"
         :vote_average="card.vote_average"
-        :poster_path="card.poster_path" />
+        :poster_path="card.poster_path"
+        :overview="card.overview" />
         
         
       </div>
@@ -47,7 +48,8 @@ import { store } from '../data/store';
           :original_language="tv.original_language"
           :title="tv.name"
           :vote_average="tv.vote_average" 
-          :poster_path="tv.poster_path"/>
+          :poster_path="tv.poster_path"
+          :overview="tv.overview"/>
         
 
       </div>
@@ -64,6 +66,10 @@ import { store } from '../data/store';
   overflow-y: scroll;
   .container{
     margin-top: 20px;
+    h2{
+      color: black;
+      text-shadow: 0 0 5px red;
+    }
   }
 }
 </style>

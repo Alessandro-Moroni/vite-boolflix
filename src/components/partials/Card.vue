@@ -7,6 +7,7 @@ import { store } from '../../data/store';
       vote_average: Number,
       title: String,
       poster_path: String,
+      overview: String,
     },
    data(){
     return{
@@ -45,17 +46,19 @@ import { store } from '../../data/store';
 <template>
   <div class="col mb-5 ">
 
-    <div class="card" style="width: 18rem;">
-      <img v-if="poster_path === null" src="../../assets/bandiere/img404.webp" class="card-img-top not-found" alt="">
-      <img v-else :src="`https://image.tmdb.org/t/p/w342${poster_path}`" class="card-img-top" :alt="poster_path">
-      <div class="card-body">
-        <h5 class="card-title">{{ original_title }}</h5>
-        <p class="card-text">{{ title }}</p>
-        <img class="flag" v-if="original_language === 'it'" src="../../assets/bandiere/it.png" alt="">
-        <img class="flag" v-else-if="original_language === 'en'" src="../../assets/bandiere/en.png" alt=""> 
-        <p class="card-text" v-else>{{ original_language }}</p>
-        <p class="card-text star" v-html="createStars(vote_average)"></p>
-        
+    <div class="card-movie" style="width: 18rem;">
+      <img v-if="poster_path === null" src="../../assets/bandiere/img404.webp" class="not-found" alt="">
+      <img v-else :src="`https://image.tmdb.org/t/p/w342${poster_path}`" class="not-found" :alt="poster_path">
+      <div class="description">
+       
+        <h5 class="movie-text">{{ original_title }}</h5>
+        <p class="movie-text mini-title">{{ title }}</p>
+        <img class="flag movie-text" v-if="original_language === 'it'" src="../../assets/bandiere/it.png" alt="">
+        <img class="flag movie-text" v-else-if="original_language === 'en'" src="../../assets/bandiere/en.png" alt=""> 
+        <p class="movie-text" v-else>{{ original_language }}</p>
+        <p class="movie-text star" v-html="createStars(vote_average)"></p>
+        <p class="movie-text text-description">{{ overview }}</p>
+    
       </div>
     </div>
 
@@ -66,6 +69,8 @@ import { store } from '../../data/store';
 <style lang="scss" scoped>
 .flag{
   width: 20%;
+  border-radius: 20px;
+  margin: 10px 0;
 }
 .star{
   color: rgb(243, 205, 110);
@@ -74,4 +79,42 @@ import { store } from '../../data/store';
   height: 430px;
   object-fit: contain;
 }
+.card-movie{
+  position: relative;
+  .description{
+    color: white;
+    padding: 7px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .movie-text{
+      opacity: 0;
+    }
+    h5{
+      color: red
+    }
+    .mini-title{
+      margin: 10px 0;
+      
+    }
+    .text-description{
+      overflow: auto;
+      height: 250px;
+
+    }
+  }
+}
+
+.card-movie:hover .not-found{
+  opacity: .4;
+  transition: .8s;
+  box-shadow: 0 0 30px rgb(238, 238, 235);
+}
+.card-movie:hover .movie-text{
+  
+  transition: 1.5s;
+  opacity: 100%;
+}
+
 </style>
