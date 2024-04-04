@@ -15,24 +15,25 @@ import { store } from '../../data/store';
    },
    methods:{
     createStars(vote){
-      let stars = '';
+      const stars = [];
       const finalVote = vote / 2;
-      const finalStar = Math.floor(finalVote);
-      const halfStar = finalVote % 1 >= 0.5;
-      for(let i = 0; i < finalStar; i++){
-        stars += '<i class="fa-solid fa-star"></i>';
+      let halfStar = finalVote % 1 !== 0;
+      for(let i = 0; i < 5; i++){
+        if(i < finalVote){
+          stars.push('<i class="fa-solid fa-star"></i>');
 
-      }if(halfStar){
-        stars += '<i class="fa-solid fa-star-half-stroke"></i>';
-      }
-      const emptyStar = 5;
-      for(let i = 0; i < finalStar; i++){
+        }else if(halfStar){
+          stars.push('<i class="fa-solid fa-star-half-stroke"></i>');
+          halfStar = false;
 
-      }if(emptyStar){
-        stars += '<i class="fa-regular fa-star"></i>';
+        }else{
+          stars.push('<i class="fa-regular fa-star"></i>');
+        }
+        
       }
+      return stars.join('');
+  
       
-      return stars;
     },
 
    },
@@ -49,10 +50,10 @@ import { store } from '../../data/store';
       <img v-else :src="`https://image.tmdb.org/t/p/w342${poster_path}`" class="card-img-top" :alt="poster_path">
       <div class="card-body">
         <h5 class="card-title">{{ original_title }}</h5>
+        <p class="card-text">{{ title }}</p>
         <img class="flag" v-if="original_language === 'it'" src="../../assets/bandiere/it.png" alt="">
         <img class="flag" v-else-if="original_language === 'en'" src="../../assets/bandiere/en.png" alt=""> 
         <p class="card-text" v-else>{{ original_language }}</p>
-        <p class="card-text">{{ title }}</p>
         <p class="card-text star" v-html="createStars(vote_average)"></p>
         
       </div>
