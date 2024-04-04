@@ -76,18 +76,21 @@ import { store } from '../../data/store';
   color: rgb(243, 205, 110);
 }
 .not-found{
+  object-fit: contain;
   height: 430px;
   width: 290px;
-  object-fit: contain;
 }
 .card-movie{
   position: relative;
+
   .description{
     color: white;
-    padding: 7px;
+    padding: 30px;
     position: absolute;
     top: 0;
     left: 0;
+    height: 430px;
+    
 
     .movie-text{
       opacity: 0;
@@ -99,11 +102,7 @@ import { store } from '../../data/store';
       margin: 10px 0;
       
     }
-    .text-description{
-      overflow: auto;
-      height: 200px;
-
-    }
+ 
   }
 }
 
@@ -112,10 +111,15 @@ import { store } from '../../data/store';
   transition: .8s;
   box-shadow: 0 0 30px rgb(238, 238, 235);
 }
-.card-movie:hover .movie-text{
-  
+.card-movie:hover .movie-text{ 
   transition: 1.5s;
   opacity: 100%;
 }
+.card-movie:hover .description{
+  overflow: auto;
+  scrollbar-width: thin;
+
+}
+
 
 </style>
