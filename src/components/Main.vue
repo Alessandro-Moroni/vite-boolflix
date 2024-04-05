@@ -104,7 +104,7 @@ import { store } from '../data/store';
     margin-top: 20px;
     h2{
       color: black;
-      text-shadow: 0 0 5px red;
+      text-shadow: 0 0 5px rgb(220, 26, 40);
       margin-bottom: 20px;
     }
   }

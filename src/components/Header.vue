@@ -50,7 +50,7 @@ import { store } from '../data/store';
   position: fixed;
   z-index: 1;
   h1{
-    color: red;
+    color: rgb(220, 26, 40);
   }
  
 }
@@ -60,5 +60,11 @@ import { store } from '../data/store';
   img{
     width: 230px;
   }
+}
+input{
+  border-radius: 8px;
+}
+.btn{
+  background-color: rgb(220, 26, 40);
 }
 </style>

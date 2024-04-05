@@ -97,7 +97,7 @@ import { store } from '../../data/store';
       opacity: 0;
     }
     h5{
-      color: red
+      color: rgb(220, 26, 40)
     }
     .mini-title{
       margin: 10px 0;
@@ -119,8 +119,18 @@ import { store } from '../../data/store';
 }
 .card-movie:hover .description{
   overflow: auto;
-  scrollbar-width: thin;
 
+}
+.description::-webkit-scrollbar{
+  background-color: rgb(245, 239, 239, .0);
+  border-radius: 20px;
+  width: 5px;
+
+}
+.description::-webkit-scrollbar-thumb{
+  background-color: rgb(220, 26, 40);
+  border-radius: 20px;
+  height: 1px;
 }
 
 
