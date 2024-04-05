@@ -82,6 +82,7 @@ import { store } from '../../data/store';
 }
 .card-movie{
   position: relative;
+  text-shadow: 0 0 3px black;
 
   .description{
     color: white;
@@ -107,6 +108,7 @@ import { store } from '../../data/store';
 }
 
 .card-movie:hover .not-found{
+  transform: scale(1.08);
   opacity: .4;
   transition: .8s;
   box-shadow: 0 0 30px rgb(238, 238, 235);
@@ -120,6 +122,7 @@ import { store } from '../../data/store';
   scrollbar-width: thin;
 
 }
+
 
 
 </style>

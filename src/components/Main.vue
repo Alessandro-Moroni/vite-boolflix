@@ -55,12 +55,12 @@ import { store } from '../data/store';
       </div>
     </div>
 
-    <!-- <div class="container" v-if="store.cardListMovie.length > 0">
-      <h2>Movie</h2>
+    <div class="container" v-if="store.popularMovieList.length > 0">
+      <h2>Popular Movie</h2>
       <div class="row  row-cols-4 ">
         
         <Card
-        v-for="card in this.store.cardListMovie"
+        v-for="card in this.store.popularMovieList"
         :key="card.id"
         :original_title="card.original_title"
         :original_language="card.original_language"
@@ -71,7 +71,25 @@ import { store } from '../data/store';
         
         
       </div>
-    </div> -->
+    </div>
+
+    <div class="container" v-if="store.popularSeriesList.length > 0">
+      <h2>Popular Series</h2>
+      <div class="row  row-cols-4 ">
+        
+        <Card
+        v-for="card in this.store.popularSeriesList"
+        :key="card.id"
+        :original_title="card.original_title"
+        :original_language="card.original_language"
+        :title="card.title"
+        :vote_average="card.vote_average"
+        :poster_path="card.poster_path"
+        :overview="card.overview" />
+        
+        
+      </div>
+    </div>
   </div>
 </template>
 

@@ -11,7 +11,8 @@ import { store } from '../data/store';
     methods:{
       searchTitle(){
         this.store.queryParams.query = this.searchMovie;
-       
+       this.store.popularMovieList = [];
+       this.store.popularSeriesList = [];
         this.$emit('searchTitle')
       },
       resetSearch(){
@@ -24,7 +25,10 @@ import { store } from '../data/store';
 
 <template>
   <div class="container-fluid d-flex justify-content-between align-items-center p-3">
-    <h1>BOOLFLIX</h1>
+    <div class="logo">
+      <img src="../assets/bandiere/boolflix-logo.png" alt="">
+    </div>
+
 
     <div class=" search-bar d-flex ">
       <input
@@ -49,5 +53,12 @@ import { store } from '../data/store';
     color: red;
   }
  
+}
+
+.logo{
+  object-fit: contain;
+  img{
+    width: 230px;
+  }
 }
 </style>

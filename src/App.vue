@@ -43,11 +43,49 @@ export default {
       .catch(error => {
         console.log(error);
       })
-    }
+    },
+
+    // funzione popular movie
+    getPopularMovie(){
+      axios.get(this.store.popularMovieApi, {
+        params:{
+          api_key: '3f94080f310f95df3a4a3635805ca441',
+          language: 'it-It',
+          query: '',
+        }
+      })
+      .then(res => {
+        this.store.popularMovieList = res.data.results
+        console.log(this.store.popularMovieList);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    },
+
+    // funzione popular series
+    getPopularSeries(){
+      axios.get(this.store.popularSeriesApi, {
+        params:{
+          api_key: '3f94080f310f95df3a4a3635805ca441',
+          language: 'it-It',
+          query: '',
+        }
+      })
+      .then(res => {
+        this.store.popularSeriesList = res.data.results
+        console.log(this.store.popularMovieList);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    },
    },
    mounted(){
     this.getApiMovie()
     this.getApiTv()
+    this.getPopularMovie()
+    this.getPopularSeries()
    }
   }
 </script>
